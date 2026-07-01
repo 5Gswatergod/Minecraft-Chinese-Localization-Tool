@@ -71,7 +71,8 @@ export default function App(): JSX.Element {
     kind: "manual",
     endpoint: "http://127.0.0.1:11434",
     model: "rinex20/translategemma3:12b",
-    temperature: 0.1
+    temperature: 0.1,
+    speedMode: "fast"
   });
   const [busy, setBusy] = useState<string | null>(null);
   const [message, setMessage] = useState<string>("");
@@ -538,6 +539,14 @@ export default function App(): JSX.Element {
                   <label className="field">
                     <span>Model</span>
                     <input value={backend.model ?? ""} onChange={(event) => setBackend({ ...backend, model: event.target.value })} />
+                  </label>
+                  <label className="check-row">
+                    <input
+                      type="checkbox"
+                      checked={(backend.speedMode ?? "balanced") === "fast"}
+                      onChange={(event) => setBackend({ ...backend, speedMode: event.target.checked ? "fast" : "balanced" })}
+                    />
+                    快速模式
                   </label>
                   {backend.kind === "openai-compatible" && (
                     <label className="field">

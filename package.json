@@ -11,7 +11,8 @@
     "build:main": "tsc -p tsconfig.main.json",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.main.json",
     "test": "vitest run",
-    "package": "npm run build && electron-builder --win nsis portable"
+    "package": "npm run build && electron-builder --win nsis",
+    "package:portable": "npm run build && electron-builder --win portable"
   },
   "dependencies": {
     "jszip": "^3.10.1",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
+    "@types/pngjs": "^6.0.5",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^6.0.3",
@@ -28,6 +30,9 @@
     "cross-env": "^7.0.3",
     "electron": "^43.0.0",
     "electron-builder": "^26.15.3",
+    "png-to-ico": "^3.0.1",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.3",
     "typescript": "^5.7.2",
     "vite": "^8.1.2",
     "vitest": "^4.1.9",
@@ -41,9 +46,11 @@
     },
     "files": [
       "dist/**/*",
+      "assets/**/*",
       "package.json"
     ],
     "win": {
+      "icon": "assets/icon.ico",
       "target": [
         "nsis",
         "portable"

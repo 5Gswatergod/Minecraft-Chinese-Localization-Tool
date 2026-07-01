@@ -20,7 +20,8 @@ This is an Electron + React + TypeScript desktop app for building Minecraft Chin
 - `npm run build`: compile Electron code and build renderer assets.
 - `npm run typecheck`: run TypeScript checks for renderer and main configs.
 - `npm test`: run Vitest tests.
-- `npm run package`: create Windows NSIS and portable builds in `release/`.
+- `npm run package`: create the Windows NSIS installer in `release/`.
+- `npm run package:portable`: attempt a portable Windows build separately.
 
 ## Coding Style & Naming Conventions
 

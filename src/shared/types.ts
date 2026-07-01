@@ -93,6 +93,7 @@ export interface TranslationBackendConfig {
   apiKey?: string;
   model?: string;
   temperature?: number;
+  speedMode?: "balanced" | "fast";
 }
 
 export interface ProjectSnapshot {

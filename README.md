@@ -47,10 +47,16 @@ npm run typecheck
 npm test
 ```
 
-Create Windows packages:
+Create the Windows installer:
 
 ```powershell
 npm run package
+```
+
+Portable builds can be attempted separately:
+
+```powershell
+npm run package:portable
 ```
 
 ## Project Files

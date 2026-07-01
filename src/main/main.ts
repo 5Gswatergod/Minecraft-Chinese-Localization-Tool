@@ -20,12 +20,14 @@ import { thirdPartyTools } from "./core/thirdParty";
 let mainWindow: BrowserWindow | undefined;
 
 function createMainWindow(): void {
+  const iconPath = path.join(__dirname, "../../assets/icon.ico");
   mainWindow = new BrowserWindow({
     width: 1440,
     height: 920,
     minWidth: 1120,
     minHeight: 760,
     title: "Minecraft Chinese Localization Tool",
+    icon: iconPath,
     backgroundColor: "#f6f4ef",
     webPreferences: {
       preload: path.join(__dirname, "../preload/index.js"),
