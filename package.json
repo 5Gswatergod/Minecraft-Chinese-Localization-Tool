@@ -1,0 +1,53 @@
+{
+  "name": "minecraft-chinese-localization-tool",
+  "version": "0.1.0",
+  "description": "A desktop workbench for creating Chinese localization patches for Minecraft modpacks.",
+  "main": "dist/main/main.js",
+  "private": true,
+  "scripts": {
+    "dev": "npm run build:main && concurrently -k \"vite --host 127.0.0.1\" \"wait-on http://127.0.0.1:5173 && cross-env VITE_DEV_SERVER_URL=http://127.0.0.1:5173 electron .\"",
+    "start": "npm run build && electron .",
+    "build": "npm run build:main && vite build",
+    "build:main": "tsc -p tsconfig.main.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.main.json",
+    "test": "vitest run",
+    "package": "npm run build && electron-builder --win nsis portable"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^6.0.3",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^43.0.0",
+    "electron-builder": "^26.15.3",
+    "typescript": "^5.7.2",
+    "vite": "^8.1.2",
+    "vitest": "^4.1.9",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "tw.codex.minecraft-chinese-localization-tool",
+    "productName": "Minecraft Chinese Localization Tool",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    }
+  }
+}
