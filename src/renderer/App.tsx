@@ -70,8 +70,8 @@ export default function App(): JSX.Element {
   const [backend, setBackend] = useState<TranslationBackendConfig>({
     kind: "manual",
     endpoint: "http://127.0.0.1:11434",
-    model: "llama3.1",
-    temperature: 0.2
+    model: "rinex20/translategemma3:12b",
+    temperature: 0.1
   });
   const [busy, setBusy] = useState<string | null>(null);
   const [message, setMessage] = useState<string>("");
